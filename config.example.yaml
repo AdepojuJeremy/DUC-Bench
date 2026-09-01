@@ -1,0 +1,35 @@
+project:
+  name: DUC-Bench provisional workshop pilot
+  target_items: 200
+  formal_duc_items: 180
+  no_conflict_controls: 20
+
+balance:
+  # 180 formal items = exactly 10 per subdomain × evidence-arm cell.
+  subdomains:
+    - diagnosis
+    - treatment_selection
+    - triage_urgency
+    - medication_safety
+    - public_health_advice
+    - patient_counselling
+  arms:
+    - contradictory
+    - complicating
+    - uncertainty_inducing
+  items_per_subdomain_arm_cell: 10
+  controls_by_subdomain: [4, 4, 3, 3, 3, 3]
+
+llm:
+  provider: openai  # or anthropic
+  model: SET_EXPLICIT_MODEL_ID
+  workers: 6
+  smoke_test_items: 3
+
+release_policy:
+  workshop_dataset_label: provisional_source_grounded_pilot
+  allow_claim_gold: false
+  require_structural_review_for_experiment: true
+  require_clinical_review_for_gold: true
+  required_gold_reviewers_per_item: 2
+  adjudicator_on_material_disagreement: true
