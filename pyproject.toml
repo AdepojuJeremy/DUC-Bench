@@ -1,0 +1,13 @@
+[project]
+name = "ducbench-generation-pipeline"
+version = "0.1.0"
+description = "Source-grounded DUC-Bench pilot dataset construction pipeline"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.40"]
+
+[project.scripts]
+ducbench = "ducbench.cli:main"
